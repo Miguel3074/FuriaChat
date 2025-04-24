@@ -1,0 +1,204 @@
+/* Resetando margens e preenchimentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    /* Preto escuro */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    height: 90%;
+    background-color: #222222;
+    /* Fundo escuro para o chat */
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+header {
+    background-color: #ff6600;
+    /* Laranja FURIA */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-left: 10px;
+}
+
+header .logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.chat-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    border-top: 3px solid #ff6600;
+    /* Laranja para dividir */
+    background-color: #1c1c1c;
+    /* Cor de fundo mais escura para o chat */
+}
+
+.message {
+    margin: 10px 0;
+}
+
+.message strong {
+    color: #ff6600;
+    /* Nome do usuário em laranja */
+}
+
+.message-bot {
+    color: #00ff00;
+    /* Mensagens do bot em verde */
+}
+
+footer {
+    position: relative;
+    padding: 20px;
+    background-color: #333;
+    border-top: 1px solid #ff6600;
+}
+
+
+.msg-input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #555;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+.msg-input:focus {
+    border-color: #ff6600;
+    /* Borda laranja ao focar */
+    outline: none;
+}
+
+/* Estilos para o campo de nome de usuário */
+.username-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.username-input {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 15px;
+    border: 2px solid #ff6600;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+.username-input:focus {
+    border-color: #ff6600;
+    /* Borda laranja ao focar */
+    outline: none;
+}
+
+.set-username-btn {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.set-username-btn:hover {
+    background-color: #ff4d00;
+    /* Alterando cor do botão ao passar o mouse */
+}
+
+/* Estilo para a seção de ajuda */
+.help-section {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.help-section p {
+    margin-bottom: 10px;
+}
+
+.help-section strong {
+    color: #ff6600;
+    /* Laranja para o nome do bot */
+}
+
+.close-help-btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.close-help-btn:hover {
+    background-color: #ff4d00;
+    /* Cor ao passar o mouse */
+}
+
+/* Estilo para a caixa de sugestões */
+.suggestions-box {
+    position: absolute;
+    bottom: 60px;
+    background-color: #222;
+    border: 1px solid #444;
+    width: calc(100% - 40px);
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+
+.suggestions-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.suggestions-box li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions-box li:hover {
+    background-color: #444;
+}

@@ -2,42 +2,39 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>FURIA Chat</title>
-  <style>
-    body { font-family: sans-serif; background: #111; color: white; padding: 10px; }
-    #chat { height: 400px; overflow-y: scroll; border: 1px solid #333; padding: 10px; margin-bottom: 10px; }
-    .message { margin: 5px 0; }
-    input { padding: 10px; width: calc(100% - 22px); }
-  </style>
+  <title>🔥 FURIA Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/furia_logo.png" type="image/png" />
 </head>
 <body>
-  <h1>🔥 FURIA Chat</h1>
-  <div id="chat"></div>
-  <input id="msg" placeholder="Digite sua mensagem e aperte Enter..." autofocus />
+  <div class="container">
+    <header>
+      <img src="assets/furia_logo.png" alt="Logo FURIA" class="logo">
+      <h1>🔥 FURIA Chat</h1>
+    </header>
+
+    <div class="help-section" id="help-section">
+      <p>Para interagir com o bot <strong>@botFurioso</strong>, basta mencioná-lo em sua mensagem. Exemplo: <em>@botFurioso qual é a line da Furia de CS2?</em></p>
+      <p>O <strong>@botFurioso</strong> responderá automaticamente quando for mencionado. Teste e divirta-se!</p>
+      <button id="close-help" class="close-help-btn">Fechar</button>
+    </div>
+
+    <div id="chat" class="chat-container"></div>
+
+    <div id="username-container" class="username-container" style="display: block;">
+      <input id="username-input" class="username-input" placeholder="Digite seu nome de usuário..." />
+      <button id="set-username" class="set-username-btn">Confirmar Nome</button>
+    </div>
+
+    <footer>
+      <input id="msg" class="msg-input" placeholder="Digite sua mensagem e aperte Enter..." disabled autofocus />
+      <div id="suggestions-box" class="suggestions-box" style="display: none;">
+        <ul id="suggestions-list"></ul>
+      </div>
+    </footer>
+  </div>
+
   <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
-  <script>
-    const socket = io("http://localhost:3000");
-    const chat = document.getElementById("chat");
-    const msgInput = document.getElementById("msg");
-    const username = prompt("Digite seu nome de usuário:");
-
-    msgInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && msgInput.value.trim() !== "") {
-        socket.emit("sendMessage", {
-          username,
-          message: msgInput.value.trim(),
-        });
-        msgInput.value = "";
-      }
-    });
-
-    socket.on("receiveMessage", (data) => {
-      const div = document.createElement("div");
-      div.classList.add("message");
-      div.innerHTML = `<strong>${data.username}:</strong> ${data.message}`;
-      chat.appendChild(div);
-      chat.scrollTop = chat.scrollHeight;
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
