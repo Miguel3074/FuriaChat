@@ -25,23 +25,22 @@ body {
     width: 80%;
     max-width: 900px;
     height: 90%;
-    background-color: #222222;
-    /* Fundo escuro para o chat */
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 20px 30px rgba(0, 0, 0, 0.6);
 }
 
 header {
-    background-color: #ff6600;
+    background-color: #000;
     /* Laranja FURIA */
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    border: 4px solid #fff;
 }
 
 header h1 {
@@ -59,10 +58,24 @@ header .logo {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
-    border-top: 3px solid #ff6600;
-    /* Laranja para dividir */
-    background-color: #1c1c1c;
-    /* Cor de fundo mais escura para o chat */
+}
+
+.chat-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: transparent; /* fundo da barra */
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background-color: #fff; /* a "bolinha" branca */
+    border-radius: 5px;
+}
+
+/* Remover as setinhas (só afeta navegadores Webkit) */
+.chat-container::-webkit-scrollbar-button {
+    display: none;
 }
 
 .message {
@@ -82,8 +95,8 @@ header .logo {
 footer {
     position: relative;
     padding: 20px;
-    background-color: #333;
-    border-top: 1px solid #ff6600;
+    background-color: #000;
+    border: 4px solid;
 }
 
 
@@ -91,24 +104,21 @@ footer {
     width: 100%;
     padding: 15px;
     border-radius: 10px;
-    border: 2px solid #555;
-    background-color: #333;
+    border: 2px solid #fff;
+    background-color: #000;
     color: #fff;
     font-size: 16px;
 }
 
 .msg-input:focus {
     border-color: #ff6600;
-    /* Borda laranja ao focar */
     outline: none;
 }
 
-/* Estilos para o campo de nome de usuário */
 .username-container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     padding: 20px;
+    background-color: #ff73000d;
 }
 
 .username-input {
@@ -145,10 +155,9 @@ footer {
 
 /* Estilo para a seção de ajuda */
 .help-section {
-    background-color: #333;
+    background-color: #ff73000d;
     color: #fff;
     padding: 15px;
-    margin: 20px 0;
     border-radius: 5px;
     font-size: 1rem;
     text-align: center;
