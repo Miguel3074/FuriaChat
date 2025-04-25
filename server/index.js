@@ -44,34 +44,40 @@ async function generateBotResponse(prompt) {
         const response = await client.chat.completions.create({
             messages: [
                 {
-                    role: "system", 
+                    role: "system",
                     // Como peguei uma ai free para a api, as informaçoes estavam desatualizadas, atualisei manualmente abaixo algumas.
                     content: `Você é o bot oficial da torcida da FURIA, divertido, estiloso mas reponde as perguntas com precisao. EVITE USAR "**" e "*". Hoje é ${currentDate}.
-                  
-                  Informações atualizadas:
-                  
-                  🕹️ Line-up FURIA League of Legends (2025):
-                  - Top: Guigo (Guilherme Ruiz)
-                  - Jungle: Tatu (Pedro Seixas)
-                  - Mid: Tutsz (Arthur Peixoto Machado)
-                  - ADC: Ayu (Andrey Saraiva)
-                  - Support: JoJo (Gabriel Dzelme de Oliveira)
-                  - Coach: Thinkcard (Thomas Slotkin)
-                  - Assistente: Furyz (Erick Susin)
-                  
-                  🔫 Line-up FURIA CS2 (abril de 2025):
-                  - Gabriel "FalleN" Toledo – IGL / AWP
-                  - Yuri "yuurih" Santos
-                  - Kaike "KSCERATO" Cerato
-                  - Danil "molodoy" Golubenko
-                  - Mareks "YEKINDAR" Gaļinskis (stand-in)
-                  - Coach: Sid "sidde" Macedo
-                  
-                  ⚽ Time FURIA FC – Kings League Brasil:
-                  - Presidentes: Neymar Jr. e Cris Guedes
-                  - A equipe compete na Kings League Brasil, uma liga de Futebol 7 com regras inovadoras e partidas emocionantes.
-                  
-                  Sempre que alguém perguntar sobre essas line-ups, responda com essas informações.`
+                    Informações atualizadas:
+                    Visão Geral da FURIA Esports
+                    Fundação: Agosto de 2017, por Jaime Pádua, André Akkari e Cris Guedes.
+                    Sede: Brasil
+                    Estilo de Jogo: Conhecida por sua abordagem agressiva e tática no cenário competitivo.
+                    Participações em Torneios: Mais de 129 torneios disputados.
+                    Premiação Acumulada: Mais de US$ 2,28 milhões em prêmios.
+                    Recorde de Audiência: 1.428.993 espectadores no IEM Rio Major 2022.
+                    👥 Elenco Atual (Abril de 2025)
+                    Jogador	Nome Completo	Função	Tempo de Equipe	Rating HLTV
+                    yuurih	Yuri Santos	Rifler	7 anos 5 meses	1.17
+                    KSCERATO	Kaike Cerato	Rifler	7 anos 2 meses	1.19
+                    FalleN	Gabriel Toledo	AWP / IGL	1 ano 9 meses	1.01
+                    molodoy	—	Rifler	14 dias	—
+                    YEKINDAR	Mareks Gaļinskis	Rifler	3 dias	—
+                    Treinador	Nicholas "guerri"	Coach	Desde 2018	—
+                    Nota: Chelo e skullz estão atualmente no banco de reservas.
+                    Conquistas Relevantes
+                    Elisa Masters Espoo 2023: Campeões, consolidando-se como uma potência global no CS2.
+                    IEM Rio 2024: 3º lugar, com uma premiação de US$ 250.000.
+                    IEM Rio Major 2022: Semifinalistas, melhor resultado da equipe em Majors até então. 
+                    📊 Desempenho Recente
+                    Nos últimos 12 meses, a FURIA disputou 60 partidas, vencendo 38 delas, resultando em uma taxa de vitória de 64%.
+                    EGamersWorld
+                    Resultados recentes incluem:
+                    Vitória sobre Apogee Esports (2:0) em 06/04/2025
+                    Derrotas para The Mongolz, Virtus.pro e Complexity Gaming em abril de 2025 
+                    🔄 Evolução do Elenco
+                    A FURIA tem demonstrado dinamismo em sua composição:
+                    YEKINDAR ingressou recentemente, substituindo skullz, que foi para o banco de reservas.
+                    molodoy também é uma adição recente, com apenas 14 dias na equipe.`
                 },
 
                 { role: "user", content: prompt.replace("@botFurioso", "").trim() },
@@ -125,5 +131,5 @@ io.on("connection", (socket) => {
 // Inicialização do servidor na porta definida
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando na porta ${PORT}`);
+    console.log(`🚀 Servidor rodando na porta ${ PORT }`);
 });
