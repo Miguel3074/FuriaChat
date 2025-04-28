@@ -45,8 +45,12 @@ header {
 
 header h1 {
     font-size: 2rem;
-    margin-left: 10px;
+    margin: 0 30px;
 }
+
+.mirrored {
+    transform: scaleX(-1);
+  }  
 
 header .logo {
     width: 50px;
@@ -215,4 +219,52 @@ footer {
 
 .suggestions-box li:hover {
     background-color: #444;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+
+    header .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .chat-container {
+        padding: 10px;
+    }
+
+    .msg-input, .username-input {
+        font-size: 14px;
+    }
+
+    .set-username-btn, .close-help-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .help-section {
+        font-size: 0.9rem;
+    }
 }
