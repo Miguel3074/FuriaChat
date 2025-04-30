@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔥 FURIA Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/furia_logo.png" type="image/png" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="assets/furia_logo.png" alt="Logo FURIA" class="logo">
+      <h1>FURIA Chat</h1>
+      <img src="assets/furia_logo.png" alt="Logo FURIA" class="logo mirrored">
+    </header>
+
+    <div class="help-section" id="help-section">
+      <p>Para interagir com o bot <strong>@botFurioso</strong>, basta mencioná-lo em sua mensagem. Exemplo: <em>@botFurioso qual é a line da Furia de CS2?</em></p>
+      <p>O <strong>@botFurioso</strong> responderá automaticamente quando for mencionado. Teste e divirta-se!</p>
+      <button id="close-help" class="close-help-btn">Fechar</button>
+    </div>
+
+    <div id="chat" class="chat-container"></div>
+
+    <div id="username-container" class="username-container" style="display: block;">
+      <input id="username-input" class="username-input" placeholder="Digite seu nome de usuário..." />
+      <button id="set-username" class="set-username-btn">Confirmar Nome</button>
+    </div>
+
+    <footer>
+      <input id="msg" class="msg-input" placeholder="Digite sua mensagem e aperte Enter..." disabled />
+      <div id="suggestions-box" class="suggestions-box" style="display: none;">
+        <ul id="suggestions-list"></ul>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

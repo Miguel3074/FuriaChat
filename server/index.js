@@ -3,12 +3,25 @@ import http from "http";
 import { Server } from "socket.io";
 import dotenv from "dotenv";
 import { OpenAI } from "openai";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
+
+// Para resolver __dirname em módulos ES
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Inicialização do app e servidor HTTP
 const app = express();
 const server = http.createServer(app);
+
+// Servir arquivos estáticos da pasta client
+app.use(express.static(path.join(__dirname, "client")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "index.html"));
+});
 
 // Configuração do Socket.IO com CORS liberado para qualquer origem
 const io = new Server(server, {
@@ -79,7 +92,6 @@ async function generateBotResponse(prompt) {
                     YEKINDAR ingressou recentemente, substituindo skullz, que foi para o banco de reservas.
                     molodoy também é uma adição recente, com apenas 14 dias na equipe.`
                 },
-
                 { role: "user", content: prompt.replace("@botFurioso", "").trim() },
             ],
             temperature: 1,
@@ -94,21 +106,16 @@ async function generateBotResponse(prompt) {
     }
 }
 
-
 // Evento de conexão do socket
 io.on("connection", (socket) => {
     console.log("🟢 Usuário conectado");
 
-    // Evento disparado ao receber uma mensagem
     socket.on("sendMessage", async (data) => {
         try {
-            // Verificação básica da estrutura da mensagem
             if (!data || typeof data.message !== "string") return;
 
-            // Emite a mensagem original para todos os clientes
             io.emit("receiveMessage", data);
 
-            // Se a mensagem mencionar o bot, ele responde
             if (data.message.includes("@botFurioso")) {
                 const response = await generateBotResponse(data.message);
 
@@ -122,14 +129,13 @@ io.on("connection", (socket) => {
         }
     });
 
-    // Evento de desconexão
     socket.on("disconnect", () => {
         console.log("🔴 Usuário desconectado");
     });
 });
 
-// Inicialização do servidor na porta definida
+// Inicialização do servidor
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando na porta ${ PORT }`);
+    console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
